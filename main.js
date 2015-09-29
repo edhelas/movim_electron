@@ -29,8 +29,7 @@ app.on('ready', function() {
             icon: __dirname + '/img/logo.png',
             "web-preferences": {
                 "zoom-factor": 0.975,
-                "allow-displaying-insecure-content": true,
-                "web-security": false
+                "allow-displaying-insecure-content": true
             }
         }
     );
