@@ -1,0 +1,3 @@
+# We create some links
+ln -s /opt/movim/movim /usr/bin/movim 2>/dev/null
+chmod +x /opt/movim/movim
