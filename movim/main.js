@@ -57,22 +57,26 @@ app.on('ready', function() {
         mainWindow.focusOnWebView();
     });*/
 
-    /*var appIcon = new Tray(__dirname + '/img/logo_tray.png');
+    var appIcon = new Tray(__dirname + '/img/logo_tray.png');
     appIcon.setToolTip('Movim - Kickass Social Network');
 
     appIcon.on('clicked', function() {
-        if(mainWindow.isVisible())
-            mainWindow.hide();
-        else {
+        //if(mainWindow.isVisible()) {
+        //    mainWindow.hide();
+        //else {
             mainWindow.show();
-        }
+        //}
     });
 
-    mainWindow.notification = function(enable) {
-        if(enable) {
+    mainWindow.notification = function(counter) {
+        if(counter > 0) {
+            if(app.dock) {
+                app.dock.bounce();
+                app.dock.setBadge(counter);
+            }
             appIcon.setImage(__dirname + '/img/logo_tray_notifs.png');
         } else {
             appIcon.setImage(__dirname + '/img/logo_tray.png');
         }
-    }*/
+    }
 });
