@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.8)
 
-set(PROJECT_NAME "movim")
+set(PROJECT_NAME "movim-desktop")
 set(VERSION_MAJOR "0")
 set(VERSION_MINOR "9")
 set(VERSION_PATCH "1")

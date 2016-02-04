@@ -25,7 +25,7 @@ app.on('ready', function() {
             width: 1280, 
             height: 768, 
             "min-width": 1152,
-            "min-height": 768, 
+            "min-height": 168, 
             icon: __dirname + '/img/logo.png',
             "web-preferences": {
                 "zoom-factor": 0.975,
@@ -57,6 +57,7 @@ app.on('ready', function() {
         mainWindow.focusOnWebView();
     });*/
 
+    /*
     var appIcon = new Tray(__dirname + '/img/logo_tray.png');
     appIcon.setToolTip('Movim - Kickass Social Network');
 
@@ -66,7 +67,7 @@ app.on('ready', function() {
         //else {
             mainWindow.show();
         //}
-    });
+    });*/
 
     mainWindow.notification = function(counter) {
         if(counter > 0) {
@@ -74,9 +75,9 @@ app.on('ready', function() {
                 app.dock.bounce();
                 app.dock.setBadge(counter);
             }
-            appIcon.setImage(__dirname + '/img/logo_tray_notifs.png');
+            //appIcon.setImage(__dirname + '/img/logo_tray_notifs.png');
         } else {
-            appIcon.setImage(__dirname + '/img/logo_tray.png');
+            //appIcon.setImage(__dirname + '/img/logo_tray.png');
         }
     }
 });
