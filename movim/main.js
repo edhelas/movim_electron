@@ -1,9 +1,9 @@
-var app = require('app');  // Module to control application life.
-var Tray = require('tray');
-var Menu = require('menu');
-var ipc = require('ipc');
+var app = require('electron').app;
+var Tray = require('electron').tray;
+var Menu = require('electron').menu;
+var ipc = require('electron').ipc;
 
-var BrowserWindow = require('browser-window');  // Module to create native browser window.
+var BrowserWindow = require('electron').BrowserWindow;  // Module to create native browser window.
 
 var mainWindow = null;
 
@@ -22,20 +22,20 @@ app.on('ready', function() {
     // Create the browser window.
     mainWindow = new BrowserWindow(
         {
-            width: 1280, 
-            height: 768, 
-            "min-width": 1152,
-            "min-height": 168, 
+            width: 1280,
+            height: 768,
+            "minWidth": 1152,
+            "minHeight": 600,
             icon: __dirname + '/img/logo.png',
-            "web-preferences": {
-                "zoom-factor": 0.975,
-                "allow-displaying-insecure-content": true
+            "webPreferences": {
+                "zoomFactor": 0.975,
+                "allowDisplayingInsecureContent": true
             }
         }
     );
 
     // and load the index.html of the app.
-    mainWindow.loadUrl('file://' + __dirname + '/index.html');
+    mainWindow.loadURL('file://' + __dirname + '/index.html');
 
     //mainWindow.openDevTools();
 
