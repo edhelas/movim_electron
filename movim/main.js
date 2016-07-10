@@ -1,9 +1,7 @@
-var app = require('electron').app;
-var Tray = require('electron').tray;
-var Menu = require('electron').menu;
-var ipc = require('electron').ipc;
-
-var BrowserWindow = require('electron').BrowserWindow;  // Module to create native browser window.
+const electron = require('electron');
+const {app} = electron;
+const {BrowserWindow} = electron;
+const {Menu, MenuItem} = electron;
 
 var mainWindow = null;
 
@@ -13,8 +11,6 @@ app.on('window-all-closed', function() {
         app.quit();
     }
 });
-
-var appIcon = null;
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -26,6 +22,7 @@ app.on('ready', function() {
             height: 768,
             "minWidth": 1152,
             "minHeight": 600,
+            backgroundColor: '#3F51B5',
             icon: __dirname + '/img/logo.png',
             "webPreferences": {
                 "zoomFactor": 0.975,
