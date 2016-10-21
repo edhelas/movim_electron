@@ -3,6 +3,7 @@ Version=1.0
 Name=Movim
 GenericName=Social Network
 Comment=Kick Ass Social Network, decentralized and fully based on XMPP
+Keywords=jabber;xmpp;im;instant;messaging;discussion;chat;social;
 Exec=/usr/bin/movim %U
 Terminal=false
 X-MultipleArgs=false
