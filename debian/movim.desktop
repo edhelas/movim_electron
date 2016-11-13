@@ -6,6 +6,7 @@ Comment=Kick Ass Social Network, decentralized and fully based on XMPP
 Exec=/usr/bin/movim %U
 Terminal=false
 X-MultipleArgs=false
+MimeType=x-scheme-handler/xmpp
 Type=Application
 Icon=movim.png
 Categories=Network;

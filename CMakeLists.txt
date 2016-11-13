@@ -2,14 +2,13 @@ cmake_minimum_required (VERSION 2.8)
 
 set(PROJECT_NAME "movim-desktop")
 set(VERSION_MAJOR "0")
-set(VERSION_MINOR "9")
-set(VERSION_PATCH "2")
+set(VERSION_MINOR "10")
+set(VERSION_PATCH "0")
 
 project(${PROJECT_NAME})
 
 find_package(PkgConfig REQUIRED)
-
-install(DIRECTORY "movim-linux-x64/movim" DESTINATION "/opt")
+install(DIRECTORY movim-linux-armv7l/ DESTINATION /opt/movim) # replace with ia32 or x64
 install(FILES "debian/movim.desktop" DESTINATION "/usr/share/applications")
 install(FILES "icons/22.png" DESTINATION "/usr/share/icons/hicolor/22x22/apps/" RENAME "movim.png")
 install(FILES "icons/24.png" DESTINATION "/usr/share/icons/hicolor/24x24/apps/" RENAME "movim.png")
@@ -26,6 +25,7 @@ set(CPACK_PACKAGE_CONTACT "edhelas@movim.eu")
 set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${VERSION_PATCH}")
+set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "armhf") # replace with i386 or amd64
 #set(CPACK_RESOURCE_FILE_LICENSE "../COPYING")
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${VERSION}")
 set(ACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${VERSION}")
