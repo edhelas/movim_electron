@@ -1,4 +1,5 @@
 const electron = require('electron');
+const windowStateKeeper = require('electron-window-state');
 const {app} = electron;
 const {BrowserWindow} = electron;
 const {Menu, MenuItem} = electron;
@@ -15,11 +16,19 @@ app.on('window-all-closed', function() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
+  // Set default dimensions if a previous state isn't available
+  let mainWindowState = windowStateKeeper({
+     defaultWidth: 1280,
+     defaultHeight: 768
+  });
+
     // Create the browser window.
     mainWindow = new BrowserWindow(
         {
-            width: 1280,
-            height: 768,
+            "x": mainWindowState.x,
+            "y": mainWindowState.y,
+            "width": mainWindowState.width,
+            "height": mainWindowState.height,
             "minWidth": 1152,
             "minHeight": 600,
             backgroundColor: '#3F51B5',
@@ -30,6 +39,7 @@ app.on('ready', function() {
             }
         }
     );
+    mainWindowState.manage(mainWindow);
 
     // and load the index.html of the app.
     mainWindow.loadURL('file://' + __dirname + '/index.html');
