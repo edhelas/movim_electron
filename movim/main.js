@@ -6,6 +6,15 @@ const {Menu, MenuItem} = electron;
 
 var mainWindow = null;
 
+require('electron-context-menu')({
+    prepend: (params, browserWindow) => [{
+        label: 'Movim',
+        // only show it when right-clicking images
+        visible: params.mediaType === 'image'
+    }],
+    showInspectElement: false
+});
+
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
     if (process.platform != 'darwin') {
