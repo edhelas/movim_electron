@@ -1,5 +1,9 @@
 {
   "name"    : "Movim",
   "version" : "0.10.0",
-  "main"    : "main.js"
+  "main"    : "main.js",
+  "dependencies": {
+    "electron-window-state": "^4.0.1",
+    "electron-context-menu": "^0.8.0"
+  }
 }
