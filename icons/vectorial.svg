@@ -14,10 +14,10 @@
    height="240"
    id="svg3063"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   inkscape:export-filename="/home/edhelas/Logiciels/movim_electron/icons/256.png"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:export-filename="/home/edhelas/Repositories/movim_electron/icons/42.png"
+   inkscape:export-xdpi="16.799999"
+   inkscape:export-ydpi="16.799999"
    sodipodi:docname="vectorial.svg">
   <defs
      id="defs3065">
@@ -237,17 +237,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.4748737"
-     inkscape:cx="80.137533"
+     inkscape:cx="-6.5335565"
      inkscape:cy="125.27635"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:snap-global="true"
-     inkscape:window-width="1600"
-     inkscape:window-height="828"
-     inkscape:window-x="0"
-     inkscape:window-y="28"
-     inkscape:window-maximized="1"
+     inkscape:window-width="869"
+     inkscape:window-height="475"
+     inkscape:window-x="615"
+     inkscape:window-y="127"
+     inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true">
     <inkscape:grid
@@ -257,64 +257,80 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       spacingx="5px"
-       spacingy="5px" />
+       spacingx="5"
+       spacingy="5"
+       originx="0"
+       originy="0" />
     <sodipodi:guide
        orientation="0,1"
        position="5,20"
-       id="guide3836" />
+       id="guide3836"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="1,0"
        position="20,70"
-       id="guide3838" />
+       id="guide3838"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="1,0"
        position="220,35"
-       id="guide3840" />
+       id="guide3840"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="0,1"
        position="40,220"
-       id="guide3842" />
+       id="guide3842"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="1,0"
        position="125,195"
-       id="guide3850" />
+       id="guide3850"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="0,1"
        position="100,125"
-       id="guide3852" />
+       id="guide3852"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="1,0"
        position="30,135"
-       id="guide3870" />
+       id="guide3870"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="0,1"
        position="90,210"
-       id="guide3872" />
+       id="guide3872"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="1,0"
        position="210,165"
-       id="guide3874" />
+       id="guide3874"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="0,1"
        position="100,30"
-       id="guide3876" />
+       id="guide3876"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="1,0"
        position="40,135"
-       id="guide4033" />
+       id="guide4033"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="1,0"
        position="200,130"
-       id="guide4035" />
+       id="guide4035"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="0,1"
        position="140,200"
-       id="guide4037" />
+       id="guide4037"
+       inkscape:locked="false" />
     <sodipodi:guide
        orientation="0,1"
        position="75,40"
-       id="guide4039" />
+       id="guide4039"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata3068">
