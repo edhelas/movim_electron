@@ -9,5 +9,7 @@ To run the app, clone this repository and launch it using electron.
 
 The dependencies `electron-packager` and `cmake` are required to build the Debian packages.
 
-> npm run build:debian:x64
-> npm run build:debian:i386
+```
+$ npm run build:debian:x64
+$ npm run build:debian:i386
+```

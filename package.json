@@ -2,6 +2,7 @@
   "scripts": {
     "build:debian:x64": "electron-packager movim movim-desktop --platform=linux --arch=x64 --version=1.7.5 --overwrite --prune=true --out dist/ && cmake -DELECTRON_ARCH=x64 && cpack",
     "build:debian:i386": "electron-packager movim movim-desktop --platform=linux --arch=ia32 --version=1.7.5 --overwrite --prune=true --out dist/ && cmake -DELECTRON_ARCH=ia32 && cpack",
+    "build:mac": "electron-packager movim movim-desktop --platform=darwin --arch=x64 --version=1.7.5 --overwrite --prune=true --out dist/",
     "win": "electron-builder -w --project=movim"
   }
 }
