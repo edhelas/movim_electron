@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "build": "electron-packager movim movim-desktop --platform=linux --arch=x64 --version=1.7.5 --overwrite --prune=true --out dist/",
-    "deb64": "electron-installer-debian --config package.json --src dist/movim-desktop-linux-x64/ --dest dist/installers/ --arch amd64",
-    "win": "electron-builder --project=movim"
+    "build:debian:x64": "electron-packager movim movim-desktop --platform=linux --arch=x64 --version=1.7.5 --overwrite --prune=true --out dist/ && cmake -DELECTRON_ARCH=x64 && cpack",
+    "build:debian:i386": "electron-packager movim movim-desktop --platform=linux --arch=ia32 --version=1.7.5 --overwrite --prune=true --out dist/ && cmake -DELECTRON_ARCH=ia32 && cpack",
+    "win": "electron-builder -w --project=movim"
   }
 }
 
