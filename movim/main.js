@@ -38,7 +38,7 @@ app.on('ready', function() {
             "y": mainWindowState.y,
             "width": mainWindowState.width,
             "height": mainWindowState.height,
-            "minWidth": 1152,
+            /*"minWidth": 1152,*/
             "minHeight": 600,
             backgroundColor: '#3F51B5',
             icon: __dirname + '/img/logo.png',
@@ -84,6 +84,20 @@ app.on('ready', function() {
             mainWindow.show();
         //}
     });*/
+
+    mainWindow.webContents.on('new-window', (event, url) => {
+        event.preventDefault()
+        const win = new BrowserWindow({show: true})
+        win.once('ready-to-show', () => win.show())
+        win.loadURL(url)
+        win.setMenuBarVisibility(false);
+        event.newGuest = win
+
+        // Emitted when the window is closed.
+        win.on('closed', function() {
+            win = null;
+        });
+    })
 
     mainWindow.notification = function(counter) {
         if(counter > 0) {
