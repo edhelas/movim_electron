@@ -85,7 +85,7 @@ app.on('ready', function() {
         //}
     });*/
 
-    mainWindow.webContents.on('new-window', (event, url) => {
+    /*mainWindow.webContents.on('new-window', (event, url) => {
         event.preventDefault()
         const win = new BrowserWindow({show: true})
         win.once('ready-to-show', () => win.show())
@@ -97,7 +97,7 @@ app.on('ready', function() {
         win.on('closed', function() {
             win = null;
         });
-    })
+    })*/
 
     mainWindow.notification = function(counter) {
         if(counter > 0) {
