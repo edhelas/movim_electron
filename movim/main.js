@@ -89,7 +89,7 @@ app.on('ready', function() {
             win.on('closed', function() {
                 win = null;
             });
-        } else {
+        } else if (url.search('/?popuptest') == -1) {
             require('electron').shell.openExternal(url);
         }
     });
