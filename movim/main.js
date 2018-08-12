@@ -1,5 +1,6 @@
 const windowStateKeeper = require('electron-window-state');
 const {app, BrowserWindow, Menu, MenuItem} = require('electron');
+const path = require('path');
 
 var mainWindow = null;
 
@@ -40,7 +41,7 @@ app.on('ready', function() {
             /*"minWidth": 1152,*/
             "minHeight": 600,
             backgroundColor: '#3F51B5',
-            icon: __dirname + '/img/logo.png',
+            icon: path.join(__dirname, 'img/logo.png'),
             "webPreferences": {
                 "zoomFactor": 0.975,
                 "allowDisplayingInsecureContent": true
