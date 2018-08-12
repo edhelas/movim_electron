@@ -5,11 +5,6 @@ const path = require('path');
 var mainWindow = null;
 
 require('electron-context-menu')({
-    prepend: (params, browserWindow) => [{
-        label: 'Movim',
-        // only show it when right-clicking images
-        visible: params.mediaType === 'image'
-    }],
     showInspectElement: false
 });
 
