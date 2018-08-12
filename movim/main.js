@@ -99,10 +99,10 @@ app.on('ready', function() {
     });
 
     mainWindow.notification = function(counter) {
+        app.setBadgeCount(counter);
         if(counter > 0) {
             if(app.dock) {
                 app.dock.bounce();
-                app.dock.setBadge(counter);
             }
             //appIcon.setImage(__dirname + '/img/logo_tray_notifs.png');
         } else {
