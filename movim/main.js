@@ -57,6 +57,10 @@ app.on('ready', function() {
         mainWindow = null;
     });
 
+    app.on('activate', function(event) {
+         mainWindow.show();
+    });
+
     /*
     mainWindow.on('blur', function() {
         console.log('blur');
