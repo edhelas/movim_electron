@@ -1,8 +1,5 @@
-const electron = require('electron');
 const windowStateKeeper = require('electron-window-state');
-const {app} = electron;
-const {BrowserWindow} = electron;
-const {Menu, MenuItem} = electron;
+const {app, BrowserWindow, Menu, MenuItem} = require('electron');
 
 var mainWindow = null;
 
@@ -14,6 +11,8 @@ require('electron-context-menu')({
     }],
     showInspectElement: false
 });
+
+app.commandLine.appendSwitch('force-color-profile', 'srgb');
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
