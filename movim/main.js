@@ -1,5 +1,5 @@
 const windowStateKeeper = require('electron-window-state');
-const {app, BrowserWindow, Menu, MenuItem} = require('electron');
+const {app, BrowserWindow, Menu, MenuItem, shell, ipcMain} = require('electron');
 const path = require('path');
 
 var mainWindow = null;
@@ -33,13 +33,13 @@ app.on('ready', function() {
             "y": mainWindowState.y,
             "width": mainWindowState.width,
             "height": mainWindowState.height,
-            /*"minWidth": 1152,*/
-            "minHeight": 600,
             backgroundColor: '#3F51B5',
             icon: path.join(__dirname, 'img/logo.png'),
             "webPreferences": {
-                "zoomFactor": 0.975,
-                "allowDisplayingInsecureContent": true
+                "allowDisplayingInsecureContent": true, // TODO: make it configurable
+                "preload": path.join(__dirname, 'browser.js'),
+                "nodeIntegration": false,
+                "sandbox": true
             }
         }
     );
@@ -83,18 +83,31 @@ app.on('ready', function() {
     mainWindow.webContents.on('new-window', function(e, url) {
         e.preventDefault();
         if(url.search('/?visio/') > -1) {
-            var win = new BrowserWindow()
-            win.setMenuBarVisibility(false)
-            win.loadURL(url)
+            var win = new BrowserWindow(
+                {
+                    "webPreferences": {
+                        "allowDisplayingInsecureContent": true, // TODO: make it configurable
+                        "preload": path.join(__dirname, 'browser.js'),
+                        "nodeIntegration": false,
+                        "sandbox": true
+                    }
+                }
+            );
+            win.setMenuBarVisibility(false);
+            win.loadURL(url);
             win.on('closed', function() {
                 win = null;
             });
         } else if (url.search('/?popuptest') == -1) {
-            require('electron').shell.openExternal(url);
+            shell.openExternal(url);
         }
     });
 
-    mainWindow.notification = function(counter) {
+    ipcMain.on('open-external', function(event, url) {
+        shell.openExternal(url);
+    });
+
+    ipcMain.on('notification',  function(event, counter) {
         app.setBadgeCount(counter);
         if(counter > 0) {
             if(app.dock) {
@@ -104,5 +117,6 @@ app.on('ready', function() {
         } else {
             //appIcon.setImage(__dirname + '/img/logo_tray.png');
         }
-    }
+    });
+
 });
