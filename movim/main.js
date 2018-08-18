@@ -1,6 +1,7 @@
 const windowStateKeeper = require('electron-window-state');
 const {app, BrowserWindow, Menu, MenuItem, shell, ipcMain} = require('electron');
 const path = require('path');
+const os = require('os');
 
 var mainWindow = null;
 
@@ -51,6 +52,29 @@ app.on('ready', function() {
     //mainWindow.openDevTools();
 
     mainWindow.setMenuBarVisibility(false);
+
+    if (os.platform() === 'darwin') {
+        var template = [{
+            label: "Application",
+            submenu: [
+                { label: "About Movim", selector: "orderFrontStandardAboutPanel:" },
+                { type: "separator" },
+                { label: "Quit", accelerator: "CmdOrCtrl+Q", click: function() { app.quit(); }}
+            ]}, {
+            label: "Edit",
+            submenu: [
+                { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+                { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+                { type: "separator" },
+                { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+                { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+                { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+                { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+            ]}
+        ];
+        Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+    }
+
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {
