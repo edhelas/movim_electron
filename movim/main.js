@@ -50,7 +50,52 @@ app.on('ready', function() {
 
     //mainWindow.openDevTools();
 
+    var menuDef = [
+        { label: 'File', submenu: [ { role: 'quit' } ] },
+        { role: 'editMenu' },
+        { label: 'View', submenu: [
+            { role: 'reload' },
+            { role: 'forceReload' },
+            { role: 'toggleDevTools' },
+            { type: 'separator' },
+            { role: 'resetZoom' },
+            { role: 'zoomIn' },
+            { role: 'zoomOut' },
+            { type: 'separator' },
+            { role: 'toggleFullscreen' }
+        ] },
+        { role: 'windowMenu' }
+    ];
+    if (process.platform == 'darwin') {
+        menuDef[0] = {
+            label: 'Application',
+            submenu: [
+                { role: 'about' },
+                { type: 'separator' },
+                { role: 'services', submenu: [] },
+                { type: 'separator' },
+                { role: 'hide' },
+                { role: 'hideOthers' },
+                { role: 'unhide' },
+                { role: 'front' },
+                { type: 'separator' },
+                { role: 'quit' }
+            ]
+        };
+        menuDef[2].submenu.push(
+            { type: 'separator' },
+            {
+                label: 'Speech',
+                submenu: [
+                    { role: 'startspeaking' },
+                    { role: 'stopspeaking' }
+                ]
+            }
+        );
+    }
+    Menu.setApplicationMenu(Menu.buildFromTemplate(menuDef));
     mainWindow.setMenuBarVisibility(false);
+    mainWindow.setAutoHideMenuBar(true);
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {
@@ -97,7 +142,7 @@ app.on('ready', function() {
                     }
                 }
             );
-            win.setMenuBarVisibility(false);
+            win.setMenu(null);
             win.loadURL(url);
             win.on('closed', function() {
                 win = null;
