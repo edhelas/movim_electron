@@ -40,6 +40,10 @@ h2 {
     text-align: center;
 }
 
+#error {
+    padding-top: 16rem;
+}
+
 #error img {
     max-width: 200px;
     margin: 3rem 0;
