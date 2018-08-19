@@ -5,7 +5,7 @@ window.electron = {
         ipcRenderer.send('open-external', url);
     },
     notification: function(counter) {
-        ipcRenderer.send('notification', 0 + counter);
+        ipcRenderer.send('notification', ~~counter);
     }
 };
 
