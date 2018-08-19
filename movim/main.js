@@ -29,18 +29,20 @@ app.on('ready', function() {
     // Create the browser window.
     mainWindow = new BrowserWindow(
         {
+            "title": "Movim",
             "x": mainWindowState.x,
             "y": mainWindowState.y,
             "width": mainWindowState.width,
             "height": mainWindowState.height,
-            backgroundColor: '#3F51B5',
-            icon: path.join(__dirname, 'img/logo.png'),
+            "backgroundColor": '#3F51B5',
+            "icon": path.join(__dirname, 'img/logo.png'),
             "webPreferences": {
                 "allowDisplayingInsecureContent": true, // TODO: make it configurable
                 "preload": path.join(__dirname, 'browser.js'),
                 "nodeIntegration": false,
                 "sandbox": true
-            }
+            },
+            "show": false
         }
     );
     mainWindowState.manage(mainWindow);
@@ -55,6 +57,10 @@ app.on('ready', function() {
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {
         mainWindow = null;
+    });
+
+    mainWindow.once('ready-to-show', function() {
+        mainWindow.show();
     });
 
     app.on('activate', function(event) {
