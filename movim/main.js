@@ -113,6 +113,7 @@ app.on('ready', function() {
 
     ipcMain.on('notification',  function(event, counter) {
         app.setBadgeCount(counter);
+        mainWindow.flashFrame(counter > 0);
         if(counter > 0) {
             if(app.dock) {
                 app.dock.bounce();
