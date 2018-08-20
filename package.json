@@ -3,7 +3,8 @@
     "build:debian:x64": "electron-packager movim Movim --executable-name=movim --platform=linux --arch=x64 --overwrite --prune=true --icon=movim/img/logo.png --out dist/ && cmake -DELECTRON_ARCH=x64 && cpack",
     "build:debian:i386": "electron-packager movim Movim --executable-name=movim --platform=linux --arch=ia32 --overwrite --prune=true --icon=movim/img/logo.png --out dist/ && cmake -DELECTRON_ARCH=ia32 && cpack",
     "build:mac": "electron-packager movim Movim --platform=darwin --arch=x64 --overwrite --prune=true --icon=movim/img/logo.icns --out dist/",
-    "win": "electron-builder -w --project=movim"
+    "build:windows:i386": "electron-packager movim Movim --executable-name=movim --platform=win32 --arch=ia32 --overwrite --prune=true --icon=movim/img/logo.ico --out dist/",
+    "build:windows:x64": "electron-packager movim Movim --executable-name=movim --platform=win32 --arch=x64 --overwrite --prune=true --icon=movim/img/logo.ico --out dist/"
   },
   "dependencies": {
     "electron-packager": "^12.1.0"

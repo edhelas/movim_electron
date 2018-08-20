@@ -8,7 +8,7 @@ set(VERSION_PATCH "0")
 project(${PROJECT_NAME})
 
 find_package(PkgConfig REQUIRED)
-install(DIRECTORY "dist/movim-desktop-linux-${ELECTRON_ARCH}/" DESTINATION /opt/movim) # replace with armv7l, ia32 or x64
+install(DIRECTORY "dist/Movim-linux-${ELECTRON_ARCH}/" DESTINATION /opt/movim) # replace with armv7l, ia32 or x64
 install(FILES "debian/movim.desktop" DESTINATION "/usr/share/applications")
 install(FILES "icons/22.png" DESTINATION "/usr/share/icons/hicolor/22x22/apps/" RENAME "movim.png")
 install(FILES "icons/24.png" DESTINATION "/usr/share/icons/hicolor/24x24/apps/" RENAME "movim.png")
