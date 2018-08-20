@@ -92,14 +92,13 @@ app.on('ready', function() {
 
     mainWindow.webContents.on('new-window', function(e, url) {
         e.preventDefault();
-        if(url.search('/?visio/') > -1) {
+        if((url.search('/?visio/') > -1) || (url.search('/?popuptest') > -1)) {
             var win = new BrowserWindow(
                 {
                     "webPreferences": {
                         "allowDisplayingInsecureContent": true, // TODO: make it configurable
                         "preload": path.join(__dirname, 'browser.js'),
-                        "nodeIntegration": false,
-                        "sandbox": true
+                        "nodeIntegration": false
                     }
                 }
             );
@@ -108,7 +107,7 @@ app.on('ready', function() {
             win.on('closed', function() {
                 win = null;
             });
-        } else if (url.search('/?popuptest') == -1) {
+        } else {
             shell.openExternal(url);
         }
     });
