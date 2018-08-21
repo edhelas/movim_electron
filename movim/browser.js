@@ -2,7 +2,9 @@ const {ipcRenderer} = require('electron');
 
 window.electron = {
     openExternal: function(url) {
-        ipcRenderer.send('open-external', url);
+        if (url) {
+            ipcRenderer.send('open-external', url);
+        }
     },
     notification: function(counter) {
         ipcRenderer.send('notification', ~~counter);
