@@ -1,15 +1,37 @@
 # Movim Electron
 Desktop App for Movim based on the [Electron](https://github.com/electron/electron) framework from Github.
 
-To run the app, clone this repository and launch it using electron.
+## Running
 
-> electron movim_electron/movim/.
+```
+npm start
+```
 
-## Build for Debian
+## Build for GNU/Linux
 
-The dependencies `electron-packager` and `cmake` are required to build the Debian packages.
+```
+$ npm run build:linux:x64
+$ npm run build:linux:i386
+```
+
+## Build for Debian (*.deb)
+
+The dependency `cmake` is required to build the Debian packages.
 
 ```
 $ npm run build:debian:x64
 $ npm run build:debian:i386
+```
+
+## Build for Windows
+
+```
+$ npm run build:windows:x64
+$ npm run build:windows:i386
+```
+
+## Build for macOS
+
+```
+$ npm run build:mac
 ```

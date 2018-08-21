@@ -1,11 +1,17 @@
 cmake_minimum_required (VERSION 2.8)
+project("movim-desktop" NONE)
 
-set(PROJECT_NAME "movim-desktop")
-set(VERSION_MAJOR "0")
-set(VERSION_MINOR "12")
-set(VERSION_PATCH "0")
+execute_process(
+    COMMAND npm run --silent version
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    OUTPUT_VARIABLE VERSION
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
 
-project(${PROJECT_NAME})
+string(REPLACE "." ";" VERSION_LIST ${VERSION})
+list(GET VERSION_LIST 0 VERSION_MAJOR)
+list(GET VERSION_LIST 1 VERSION_MINOR)
+list(GET VERSION_LIST 2 VERSION_PATCH)
 
 find_package(PkgConfig REQUIRED)
 install(DIRECTORY "dist/Movim-linux-${ELECTRON_ARCH}/" DESTINATION /opt/movim) # replace with armv7l, ia32 or x64
@@ -38,14 +44,14 @@ else()
 endif()
 
 set(CPACK_DEBIAN_PACKAGE_NAME "${CMAKE_PROJECT_NAME}")
-set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}_${CPACK_DEBIAN_PACKAGE_ARCHITECTURE}")
+set(CPACK_PACKAGE_FILE_NAME "${CPACK_DEBIAN_PACKAGE_NAME}_${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}_${CPACK_DEBIAN_PACKAGE_ARCHITECTURE}")
 set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Kickass distributed social networking platform that protect your privacy and comes with a set of awesome features.")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Jaussoin Timothée <edhelas@movim.eu>")
 set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://movim.eu/")
 
 set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CMAKE_CURRENT_SOURCE_DIR}/debian/postinst;${CMAKE_CURRENT_SOURCE_DIR}/debian/postrm;")
 
-set(PACK "DEB" CACHE STRING "Generate a Package")
+set(PACK "DEB" CACHE STRING "Type of generated package")
 set(CPACK_GENERATOR ${PACK})
 
 include(CPack)
